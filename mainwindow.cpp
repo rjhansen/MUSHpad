@@ -97,6 +97,9 @@ void MainWindow::textUpdated()
 
     while (iter < origtext.end()) {
         switch (*iter) {
+        case '\\':
+            newtext += "\\\\";
+            break;
         case '%':
             newtext += "%%";
             break;
