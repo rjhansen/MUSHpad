@@ -1,7 +1,7 @@
 #include <QStandardPaths>
 #include <QFileDialog>
 #include <QTextStream>
-#include <QTextCodec>
+#include <QStringConverter>
 #include <QFile>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -54,7 +54,7 @@ void MainWindow::saveText()
         return;
 
     QTextStream stream(&file);
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
+    stream.setEncoding(QStringConverter::Utf8);
     stream << ui->mushEdit->document()->toPlainText();
     file.close();
 }
